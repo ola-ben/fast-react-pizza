@@ -1,3 +1,5 @@
+import Pizza from "./Pizza";
+
 const pizzaData = [
   {
     name: "Focaccia",
@@ -55,7 +57,14 @@ function Menu() {
       {numPizza > 0 ? (
         <ul className="pizzas">
           {pizzaData.map((pizza) => (
-            <Pizza pizzaObj={pizza} key={pizza.name} /> //passing props
+            <Pizza
+              key={pizza.name}
+              name={pizza.name}
+              price={pizza.price}
+              ingridients={pizza.ingredients}
+              photoName={pizza.photoName}
+              soldOut={pizza.soldOut}
+            /> //passing props
           ))}
         </ul>
       ) : (

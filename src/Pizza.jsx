@@ -1,22 +1,25 @@
-function Pizza(props) {
+function Pizza({ name, price, ingridients, photoName, soldOut }) {
   //receiving props
 
-  console.log(props, "propsreceived");
-  if (props.pizzaObj.name === "Focaccia") {
+  console.log("propsreceived");
+  if (name === "Focaccia") {
     return;
   }
-  if (props.pizzaObj.price > 15) {
+  if (price > 15) {
     return;
   } //last expression before the main return statement
 
   //receiving props
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    <li className={`pizza ${soldOut ? "sold-out" : " "}`}>
+      {/*conditional class*/}
+
+      <img src={photoName} alt={name} />
       <div>
-        <h3>{props.pizzaObj.name} </h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{name} </h3>
+        <p>{ingridients}</p>
+        {/*conditional text*/}
+        <span>{soldOut ? "SOLD OUT" : price}</span>
       </div>
     </li>
   );
